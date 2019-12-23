@@ -89,7 +89,7 @@ func NewDecoder(r io.Reader, emitDepth int) *Decoder {
 		scanner:   newScanner(r),
 		emitDepth: emitDepth,
 		scratch:   &scratch{data: make([]byte, 1024)},
-		metaCh:    make(chan *MetaValue, 128),
+		metaCh:    make(chan *MetaValue, 1),
 	}
 	if emitDepth < 0 {
 		d.emitDepth = 0
